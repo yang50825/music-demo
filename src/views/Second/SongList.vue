@@ -278,6 +278,7 @@ export default {
                 float: right;
                 margin-top: 20px;
                 opacity: 0;
+                transition: all 0.2s;
                 .list_menu_item {
                     display: inline-block;
                     margin-right: 10px;
