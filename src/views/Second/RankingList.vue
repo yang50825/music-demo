@@ -12,19 +12,21 @@
             </div>
 
             <div class="main">
-                <router-view></router-view>
+                <router-view class="main_box"></router-view>
                 <div class="page_box">
                     <div class="client_guide">
                         <p>查看更多内容，请下载客户端</p>
                         <a href="#" class="btn">立即下载</a>
                     </div>
                 </div>
+                <Comments></Comments>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Comments from '../../components/Comments';
 export default {
     name: 'RankingList',
     data() {
@@ -186,6 +188,9 @@ export default {
             list: [],
         };
     },
+    components: {
+        Comments,
+    },
 };
 </script>
 
@@ -235,8 +240,34 @@ export default {
         // 主体内容
         .main {
             width: 990px;
+            .main_box {
+                margin-bottom: 60px;
+            }
             .page_box {
+                text-align: center;
                 .client_guide {
+                    margin-bottom: 22px;
+                    p {
+                        font-size: 18px;
+                        color: #000;
+                        text-align: center;
+                        line-height: 0.8;
+                    }
+                    .btn {
+                        display: block;
+                        margin: 20px auto 0;
+                        width: 175px;
+                        height: 41px;
+                        line-height: 41px;
+                        font-size: 16px;
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 41px;
+                        background-color: #31c27c;
+                    }
+                    & .btn:hover {
+                        background-color: #2caf6f;
+                    }
                 }
             }
         }

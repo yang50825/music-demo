@@ -2,7 +2,7 @@
     <div class="mod_toplist">
         <!-- 头部 -->
         <div class="toplist_header">
-            <h1 class="toplist_title">{{ list[0].listTitle }}</h1>
+            <h1 v-if="list.length > 0" class="toplist_title">{{ list[0].listTitle }}</h1>
             <div class="toplist_date">{{ new Date() | formatDate }}</div>
             <a href="#" class="toplist_rule">榜单规则</a>
         </div>
@@ -66,6 +66,17 @@
                             <a href="#" class="mv_btn" v-if="scope.row.isMv == 1"></a>
                             <em class="vip_btn" v-if="scope.row.isVip == 1"></em>
                         </span>
+                        <div class="mod_list_menu">
+                            <a href="#" class="list_menu_item">
+                                <em class="list_menu_item-play"></em>
+                            </a>
+                            <a href="#" class="list_menu_item">
+                                <em class="list_menu_item-add"></em>
+                            </a>
+                            <a href="#" class="list_menu_item" v-if="!scope.row.isVip">
+                                <em class="list_menu_item-share"></em>
+                            </a>
+                        </div>
                     </div>
                 </template>
             </el-table-column>
@@ -205,6 +216,8 @@ export default {
             color: #999;
         }
         .song_info {
+            height: 76px;
+            overflow: hidden;
             .song_img {
                 // 图片
                 .cover {
@@ -216,10 +229,18 @@ export default {
                 }
                 // 歌名
                 .title {
+                    display: inline-block;
                     margin-right: 5px;
+                    max-width: 72%;
                     white-space: nowrap;
                     font-size: 14px;
                     vertical-align: middle;
+                    /*1. 先强制一行内显示文本*/
+                    white-space: nowrap;
+                    /*2. 超出的部分隐藏*/
+                    overflow: hidden;
+                    /*3. 文字用省略号替代超出的部分*/
+                    text-overflow: ellipsis;
                     .songDesc {
                         margin-left: 10px;
                         color: #999;
@@ -232,12 +253,12 @@ export default {
                 // VIP MV共同样式
                 .vip_btn,
                 .mv_btn {
-                    color: #31c27c;
                     display: inline-block;
+                    margin-right: 6px;
                     width: 34px;
                     height: 16px;
                     vertical-align: middle;
-                    margin-right: 6px;
+                    color: #31c27c;
                     background-image: -webkit-image-set(
                         url(https://y.qq.com/ryqq/static/media/icon_sprite.630b3e60.png?max_age=2592000) 1x,
                         url(https://y.qq.com/ryqq/static/media/icon_sprite@2x.bf4cef49.png?max_age=2592000) 2x
@@ -251,6 +272,55 @@ export default {
                 .mv_btn {
                     background-position: -40px -280px;
                 }
+            }
+            // 歌曲按钮
+            .mod_list_menu {
+                float: right;
+                margin-top: 20px;
+                opacity: 0;
+                .list_menu_item {
+                    display: inline-block;
+                    margin-right: 10px;
+                    .list_menu_item-play,
+                    .list_menu_item-add,
+                    .list_menu_item-share {
+                        display: inline-block;
+                        width: 36px;
+                        height: 36px;
+                        background-image: -webkit-image-set(
+                            url(https://y.qq.com/ryqq/static/media/icon_list_menu.08951c0e.png?max_age=2592000) 1x,
+                            url(https://y.qq.com/ryqq/static/media/icon_list_menu@2x.a93095dc.png?max_age=2592000)
+                                2x
+                        );
+                        background-repeat: no-repeat;
+                    }
+                    .list_menu_item-play {
+                        background-position: 0 0;
+                    }
+                    .list_menu_item-add {
+                        background-position: 0 -80px;
+                    }
+                    .list_menu_item-share {
+                        background-position: 0 -40px;
+                    }
+                    & .list_menu_item-play:hover {
+                        background-position: -40px 0;
+                    }
+                    & .list_menu_item-add:hover {
+                        background-position: -40px -80px;
+                    }
+                    & .list_menu_item-share:hover {
+                        background-position: -40px -40px;
+                    }
+                }
+            }
+        }
+        & .song_info:hover {
+            .mod_list_menu {
+                opacity: 1;
+            }
+            .title {
+                max-width: 45%;
             }
         }
     }
