@@ -1,28 +1,71 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <TopBar :arr="navList"></TopBar>
+        <div class="box">
+            <router-view></router-view>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TopBar from './components/TopBar';
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'App',
+    data() {
+        return {
+            navList: [
+                {
+                    name: '音乐馆',
+                    path: '/musicHall/homePage',
+                },
+                {
+                    name: '我的音乐',
+                    path: '/myMusic',
+                },
+                {
+                    name: '客户端',
+                    path: '/client',
+                },
+                {
+                    name: '开放平台',
+                    path: '/openPlatform',
+                },
+                {
+                    name: 'VIP',
+                    path: '/vip',
+                },
+            ],
+        };
+    },
+    components: {
+        TopBar,
+    },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+/* 版心 */
+.wrapper {
+    margin: 0 auto;
+    width: 1200px;
 }
 </style>
