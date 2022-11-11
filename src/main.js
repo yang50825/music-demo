@@ -4,6 +4,10 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 // 引入路由器
 import router from './router';
+// 引入axios
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3000';
+Vue.prototype.$axios = axios;
 
 // 完整引入element-ui
 import ElementUI from 'element-ui';

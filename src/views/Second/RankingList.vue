@@ -29,11 +29,11 @@ export default {
                     item: [
                         {
                             title: '飙升榜',
-                            path: '/musicHall/rankingList/upList',
+                            path: '/musicHall/rankingList/songList/1',
                         },
                         {
                             title: '热歌榜',
-                            path: '/musicHall/rankingList/hotList',
+                            path: '/musicHall/rankingList/songList/2',
                         },
                         {
                             title: '新歌榜',
@@ -185,38 +185,44 @@ export default {
 <style lang="less" scoped>
 .rankingList {
     margin-top: 60px;
-    .aside {
-        width: 178px;
-        border: 1px solid hsla(0, 0%, 60%, 0.2);
-        .aside_list {
-            margin-bottom: 20px;
-            dt {
-                margin: 0 17px 10px;
-                font-size: 20px;
-                font-weight: 400;
-                border-bottom: 1px solid #ebebeb;
-                line-height: 60px;
-            }
-            dd {
-                font-size: 14px;
-                a {
-                    display: inline-block;
-                    padding: 8px 17px;
-                    height: 100%;
-                    font-size: 15px;
-                    display: block;
-                    line-height: 22px;
-                    padding: 8px 17px;
+    .wrapper {
+        display: flex;
+        // 侧边栏
+        .aside {
+            width: 178px;
+            border: 1px solid hsla(0, 0%, 60%, 0.2);
+            .aside_list {
+                margin-bottom: 20px;
+                dt {
+                    margin: 0 17px 10px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    border-bottom: 1px solid #ebebeb;
+                    line-height: 60px;
                 }
-                a:hover {
-                    color: #31c27c;
-                }
-                a.router-link-exact-active {
-                    background-color: #31c27c;
-                    color: #fff;
+                dd {
+                    font-size: 14px;
+                    a {
+                        display: inline-block;
+                        padding: 8px 17px;
+                        height: 100%;
+                        font-size: 15px;
+                        display: block;
+                        line-height: 22px;
+                        padding: 8px 17px;
+                    }
+                    a:hover {
+                        color: #31c27c;
+                    }
+                    a.router-link-exact-active {
+                        background-color: #31c27c;
+                        color: #fff;
+                    }
                 }
             }
         }
+
+        // 主体内容
     }
 }
 </style>

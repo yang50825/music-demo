@@ -33,7 +33,7 @@ export default {
                 },
                 {
                     name: '排行榜',
-                    path: '/musicHall/rankingList/upList',
+                    path: '/musicHall/rankingList/songList/1',
                 },
                 {
                     name: '分类歌单',

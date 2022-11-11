@@ -15,8 +15,7 @@ import Catalog from '../views/Second/Catalog';
 import Station from '../views/Second/Station';
 import MV from '../views/Second/MV';
 import DigitalAlbum from '../views/Second/DigitalAlbum';
-import HotList from '../views/Second/HotList';
-import UpList from '../views/Second/UpList';
+import SongList from '../views/Second/SongList.vue';
 
 // 创建并暴露一个路由器
 export default new VueRouter({
@@ -46,12 +45,8 @@ export default new VueRouter({
                     component: RankingList,
                     children: [
                         {
-                            path: 'upList',
-                            component: UpList,
-                        },
-                        {
-                            path: 'hotList',
-                            component: HotList,
+                            path: 'songList/:listId',
+                            component: SongList,
                         },
                     ],
                 },
