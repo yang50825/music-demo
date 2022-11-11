@@ -46,6 +46,7 @@ export default new VueRouter({
                     children: [
                         {
                             path: 'songList/:listId',
+                            name: 'SongList',
                             component: SongList,
                         },
                     ],

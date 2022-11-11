@@ -43,7 +43,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
+@mainColor: #31c27c;
+
 * {
     margin: 0;
     padding: 0;
@@ -55,8 +57,17 @@ a {
     color: #333;
 }
 
+em {
+    font-style: normal;
+}
+
 li {
     list-style: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }
 
 body {

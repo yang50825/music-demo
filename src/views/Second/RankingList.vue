@@ -13,6 +13,12 @@
 
             <div class="main">
                 <router-view></router-view>
+                <div class="page_box">
+                    <div class="client_guide">
+                        <p>查看更多内容，请下载客户端</p>
+                        <a href="#" class="btn">立即下载</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -29,11 +35,11 @@ export default {
                     item: [
                         {
                             title: '飙升榜',
-                            path: '/musicHall/rankingList/songList/1',
+                            path: '/musicHall/rankingList/SongList/1',
                         },
                         {
                             title: '热歌榜',
-                            path: '/musicHall/rankingList/songList/2',
+                            path: '/musicHall/rankingList/SongList/2',
                         },
                         {
                             title: '新歌榜',
@@ -177,6 +183,7 @@ export default {
                     ],
                 },
             ],
+            list: [],
         };
     },
 };
@@ -184,12 +191,15 @@ export default {
 
 <style lang="less" scoped>
 .rankingList {
-    margin-top: 60px;
+    padding-top: 60px;
+    background: #fafafa;
     .wrapper {
         display: flex;
+        justify-content: space-between;
         // 侧边栏
         .aside {
             width: 178px;
+            height: 1620px;
             border: 1px solid hsla(0, 0%, 60%, 0.2);
             .aside_list {
                 margin-bottom: 20px;
@@ -223,6 +233,13 @@ export default {
         }
 
         // 主体内容
+        .main {
+            width: 990px;
+            .page_box {
+                .client_guide {
+                }
+            }
+        }
     }
 }
 </style>

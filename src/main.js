@@ -13,6 +13,11 @@ Vue.prototype.$axios = axios;
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+// 格式化日期
+import moment from 'moment';
+
+Vue.filter('formatDate', val => moment(val).format('YYYY-MM-DD'));
+
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
