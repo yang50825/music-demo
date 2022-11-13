@@ -56,7 +56,7 @@ export default {
                             path: '/',
                         },
                         {
-                            title: '腾通讯音乐人原创榜',
+                            title: '腾讯音乐人原创榜',
                             path: '/',
                         },
                         {
